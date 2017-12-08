@@ -25,7 +25,8 @@ export class ProductListComponent
         new Product(1, "iPhone 3", 100, "Apple product"),
         new Product(2, "iPhone 4", 200, "Apple product"),
         new Product(3, "iPhone 5", 300, "Apple product"),
-        new Product(1, "iPhone 5s", 400, "Apple product")
+        new Product(4, "iPhone 5s", 400, "Apple product"),
+        new Product(5, "iPhone 5c", 400, "Apple product")
     ];
 }
 
