@@ -12,7 +12,7 @@ import {ProductService} from './product.service';
                     <h1> Product List </h1>
                     <ul>
                         
-                        <li *ngFor="let product of products" (click)="selectedProduct=product"> 
+                        <li *ngFor="let product of products | async" (click)="selectedProduct=product"> 
                             {{product.name}} \${{product.price}} {{product.description}}
                         </li>
                         
@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit
 {
     //productService: ProductService = new ProductService();
     //products: Array<Product> = this.productService.getAllProduct();
-    products: Array<Product>;
+    products;
     /*productObservable = this.productService.getAllProduct().subscribe(
                                                    //prod => console.log(prod)
                                                    prod => this.products = prod     
@@ -45,10 +45,11 @@ export class ProductListComponent implements OnInit
 
     listProd(): void
     {
-        this.productService.getAllProduct().subscribe(
+        /*this.productService.getAllProduct().subscribe(
                                                    //prod => console.log(prod)
                                                    prod => this.products = prod    
-                                    );
+                                    );*/
+          this.products = this.productService.getAllProduct();
     }
     
         /*products: Array<Product> = [

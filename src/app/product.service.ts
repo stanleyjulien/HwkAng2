@@ -1,6 +1,6 @@
 import {Product} from './product';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Rx';
 //const Rx = require('rxjs');
 
 
