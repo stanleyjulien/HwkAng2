@@ -3,27 +3,31 @@ import {Input} from '@angular/core';
 import {Output} from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import {ProductListComponent} from './product-list-component';
-import {Product} from './service-product';
+import {Product} from './product';
 
 @Component(
     {
         selector: 'product-detail',
-        template: `<h1> Product Detail </h1>
-                   
-                    <input type="text" id="txtbProdDet"
-                     value="{{product.name}}" 
-                     (input)="product.name=$event.target.value"
-                      >
+        template: `
+                    <div id='main'>
+                        <h1> Product Detail </h1>
+                    
+                        <input type="text" id="txtbProdDet"
+                        value="{{product.name}}" (input)="product.name=$event.target.value" >
 
-                     
-                   <!--
-                   <span *ngIf="product">
-                        {{product.description}}
-                   </span>
-                   -->
-                   <button (click)="requestDelete()">Delete</button>
+                        
+                        <!--
+                        <span *ngIf="product">
+                                {{product.description}}
+                        </span>
+                        -->
+                        <br />
+                        <button (click)="requestDelete()">Delete</button>
+                        <button>Save</button>
+                    </div>
                     `,
-        styles:['#txtbProdDet{margin: 15px; width: 350px;}']
+        styles:[`#txtbProdDet{margin: 15px; width: 350px;} 
+                 #main{border: 1px solid black; margin: 15px}`]
     }
 )
 export class ProductDetailComponent

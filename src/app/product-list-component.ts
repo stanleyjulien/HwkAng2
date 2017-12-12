@@ -1,39 +1,65 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, Pipe} from '@angular/core';
 import {AppComponent} from './app.component';
 //import {Product} from './app.component';
-import {Product} from './service-product';
+
+import {Product} from './product';
+import {ProductService} from './product.service';
 
 @Component(
     {
         selector: 'product-list',
         template: `
-        
+                    <h1> Product List </h1>
                     <ul>
+                        
                         <li *ngFor="let product of products" (click)="selectedProduct=product"> 
                             {{product.name}} \${{product.price}} {{product.description}}
                         </li>
-                    </ul>
-                    <!-- My products: {{products}} -->
-                    
-                    <!-- My products: {{products[0].name}} -->
+                        
 
-                    <!-- ProductDetailComponent -->
+
+                    </ul>
+                   
                     <product-detail [product]="selectedProduct" (deleteProduct)= "delete($event)" ></product-detail> 
-                    <!--{{message}}-->
+                    
                     `,
         styles: []
     }
 )
 
-export class ProductListComponent
+export class ProductListComponent implements OnInit
 {
-        products: Array<Product> = [
+    //productService: ProductService = new ProductService();
+    //products: Array<Product> = this.productService.getAllProduct();
+    products: Array<Product>;
+    /*productObservable = this.productService.getAllProduct().subscribe(
+                                                   //prod => console.log(prod)
+                                                   prod => this.products = prod     
+                                    );*/
+    constructor(private productService: ProductService){}
+
+    ngOnInit()
+    {
+        this.listProd();
+    }
+
+    listProd(): void
+    {
+        this.productService.getAllProduct().subscribe(
+                                                   //prod => console.log(prod)
+                                                   prod => this.products = prod    
+                                    );
+    }
+    
+        /*products: Array<Product> = [
                                         new Product(1, "iPhone 3", 100, "Apple product iPhone 3 year 2006"),
                                         new Product(2, "iPhone 4", 200, "Apple product iPhone 4 year 2008"),
                                         new Product(3, "iPhone 5", 300, "Apple product iPhone 5 year 2010"),
                                         new Product(4, "iPhone 5s", 400, "Apple product iPhone 5s year 2011"),
                                         new Product(5, "iPhone 5c", 400, "Apple product iPhone 5c year 2011")
                                     ];
+                                    */
+                                    
 
     message = '';
     selectedProduct: Product;
