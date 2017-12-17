@@ -1,9 +1,10 @@
 import {Component, OnInit, Pipe} from '@angular/core';
-import {AppComponent} from './app.component';
+import {Observable} from 'rxjs/Rx';
+
 //import {Product} from './app.component';
 
-import {Product} from './product';
-import {ProductService} from './product.service';
+import {Product} from '../classfiles/product';
+import {ProductService} from '../services/product.service';
 
 @Component(
     {
@@ -12,7 +13,7 @@ import {ProductService} from './product.service';
                     <h1> Product List </h1>
                     <ul>
                         
-                        <li *ngFor="let product of products | async" (click)="selectedProduct=product"> 
+                        <li *ngFor="let product of products$ | async" (click)="selectedProduct=product"> 
                             {{product.name}} \${{product.price}} {{product.description}}
                         </li>
                         
@@ -31,7 +32,7 @@ export class ProductListComponent implements OnInit
 {
     //productService: ProductService = new ProductService();
     //products: Array<Product> = this.productService.getAllProduct();
-    products;
+    products$: Observable<Product[]>;
     /*productObservable = this.productService.getAllProduct().subscribe(
                                                    //prod => console.log(prod)
                                                    prod => this.products = prod     
@@ -49,7 +50,7 @@ export class ProductListComponent implements OnInit
                                                    //prod => console.log(prod)
                                                    prod => this.products = prod    
                                     );*/
-          this.products = this.productService.getAllProduct();
+          this.products$ = this.productService.getAllProduct();
     }
     
         /*products: Array<Product> = [
@@ -73,15 +74,18 @@ export class ProductListComponent implements OnInit
     delete(product: Product)
     {
         //products.remove();
-        for(let i: number = 0; i < this.products.length; i++)
+        /*for(let i: number = 0; i < this.products$.length; i++)
         {
-            if(this.products[i].id == product.id)
+            if(this.products$[i].id == product.id)
             {
                 //delete this.products[i];
-                this.products.splice(i, 1);
+                this.products$.splice(i, 1);
             }
         }
+        */
     }
+
+    
     
 }
 

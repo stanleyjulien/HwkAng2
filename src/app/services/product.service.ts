@@ -1,4 +1,4 @@
-import {Product} from './product';
+import {Product} from '../classfiles/product';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 //const Rx = require('rxjs');
@@ -24,6 +24,7 @@ export class ProductService
         return Observable.of(this.products);
         //return Observable.from(this.products);
     }
+
 
     getProductById(productId: number)
         {

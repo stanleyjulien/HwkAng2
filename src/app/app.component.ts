@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {ProductService} from './product.service';
-import {Product} from './product';
+import {ProductService} from './services/product.service';
+import {Product} from './classfiles/product';
 
 @Component({
   selector: 'app-root',
@@ -24,11 +24,7 @@ export class AppComponent {
   title = 'App Store!';
   products: Array<Product>;
 
-  constructor(productService: ProductService)
-  {
-    //this.products = productService.getAllProduct();
-    
-  }
+ 
 }
 
 

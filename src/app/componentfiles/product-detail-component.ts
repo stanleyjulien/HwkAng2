@@ -3,7 +3,7 @@ import {Input} from '@angular/core';
 import {Output} from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import {ProductListComponent} from './product-list-component';
-import {Product} from './product';
+import {Product} from '../classfiles/product';
 
 @Component(
     {
@@ -12,8 +12,10 @@ import {Product} from './product';
                     <div id='main'>
                         <h1> Product Detail </h1>
                     
-                        <input type="text" id="txtbProdDet"
-                        value="{{product.name}}" (input)="product.name=$event.target.value" >
+                        
+                        <input type="text" id="txtbProdDet" (click) = "selectedProduct=product"
+                        value="{{product?.name}}" (input)="product.name=$event.target.value" >
+                
 
                         
                         <!--
@@ -23,7 +25,10 @@ import {Product} from './product';
                         -->
                         <br />
                         <button (click)="requestDelete()">Delete</button>
-                        <button>Save</button>
+                        <button (click)="requestSave()">Save</button> 
+
+                        <shopping-cart  [product]="selectedProduct" ></shopping-cart>
+
                     </div>
                     `,
         styles:[`#txtbProdDet{margin: 15px; width: 350px;} 
@@ -33,6 +38,7 @@ import {Product} from './product';
 export class ProductDetailComponent
 {
     //mess: ProductListComponent;
+    selectedProduct: Product;
 
     @Input()
     product: Product;
@@ -40,10 +46,18 @@ export class ProductDetailComponent
     //create an Event
     @Output()
     deleteProduct= new EventEmitter<Product>();
+    
+    @Output()
+    saveProduct = new EventEmitter<Product>();
 
     requestDelete()
     {
         this.deleteProduct.emit(this.product);
+    }
+
+    requestSave()
+    {
+        this.saveProduct.emit(this.product);
     }
     
 }

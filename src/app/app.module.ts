@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ProductListComponent} from './product-list-component'
-import {ProductDetailComponent} from './product-detail-component';
+import {ProductListComponent} from './componentfiles/product-list-component'
+import {ProductDetailComponent} from './componentfiles/product-detail-component';
+import{ShoppingCartComponent} from './componentfiles/shopping.cart.component'
 //import {APP_CONFIG} from '@angular/core'
-import {ProductService} from './product.service';
+import {ProductService} from './services/product.service';
 
 
 import { AppComponent } from './app.component';
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule
