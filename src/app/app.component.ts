@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
       <product-list></product-list> 
     </div>  
   `,
-  styles: ['div{border:1px solid red;text-align:center;}',
-            'hi{color:white}','div product-list{width:300px;align:left}']
+
+  styles: [`div{border:1px solid red;text-align:center;},
+            hi{color:white},div product-list{width:300px;align:left} 
+            #welcomdiv {border: 1px solid red; width: 700px; margin: auto;} 
+            #welcomh1{text-align: center;} 
+            #productp {test-aling: left; border: 1px solid green; margin: 5px;}`
+   ]
+
 })
 export class AppComponent {
   title = 'Welcome to App Store';
