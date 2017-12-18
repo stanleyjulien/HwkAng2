@@ -15,7 +15,7 @@ import {Product} from './classfiles/product';
     
     
   `,
-  styles: [`#welcomdiv {border: 1px solid red; width: 500px; margin: auto;} 
+  styles: [`#welcomdiv {border: 1px solid red; width: 700px; margin: auto;} 
             #welcomh1{text-align: center;} 
             #productp {test-aling: left; border: 1px solid green; margin: 5px;}`
    ]
