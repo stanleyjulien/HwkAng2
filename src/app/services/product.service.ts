@@ -38,6 +38,18 @@ export class ProductService
                 }
             }
         }
+    
+    deleteProduct(product: Product)
+    {
+        for(let i: number = 0; i < this.products.length; i++)
+        {
+            if(this.products[i].id == product.id)
+            {
+                //delete this.products[i];
+                this.products.splice(i, 1);
+            }
+        }
+    }
 
 
 

@@ -5,13 +5,14 @@ import{Component, Input} from '@angular/core'
     {
         selector: 'shopping-cart',
         template: `
+                    <div id="main">
                     <h1> Shopping Cart </h1>  
                     
                         <input type="text" id="txtProduct" (click) = "selectedProduct=product" 
                         value="{{product?.name}}" (saveProduct)= "save($event)">
-                    
+                    </div>
                   `,
-        styles: []
+        styles: [`#main{border: 1px solid black; margin: 5px;}`]
 
     }
 )

@@ -74,6 +74,8 @@ export class ProductListComponent implements OnInit
     delete(product: Product)
     {
         //products.remove();
+        this.productService.deleteProduct(product);
+        this.listProd();
         /*for(let i: number = 0; i < this.products$.length; i++)
         {
             if(this.products$[i].id == product.id)
