@@ -1,30 +1,16 @@
 import { Component } from '@angular/core';
-import {ProductService} from './services/product.service';
-import {Product} from './classfiles/product';
 
 @Component({
   selector: 'app-root',
-  //providers: [ProductService],
   template: `
-    <div id="welcomdiv">
-      <h1 id="welcomh1"> Welcome to {{title}} </h1> 
-      <p id="productp"> 
-        <product-list></product-list> 
-      </p>
-    </div>
-    
-    
+    <div style="text-align:center">
+      <h1> {{title}} </h1>
+      <product-list></product-list> 
+    </div>  
   `,
-  styles: [`#welcomdiv {border: 1px solid red; width: 500px; margin: auto;} 
-            #welcomh1{text-align: center;} 
-            #productp {test-aling: left; border: 1px solid green; margin: 5px;}`
-   ]
+  styles: ['div{border:1px solid red;text-align:center;}',
+            'hi{color:white}','div product-list{width:300px;align:left}']
 })
 export class AppComponent {
-  title = 'App Store!';
-  products: Array<Product>;
-
- 
+  title = 'Welcome to App Store';
 }
-
-

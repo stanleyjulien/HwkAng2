@@ -1,24 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ProductListComponent} from './componentfiles/product-list-component'
-import {ProductDetailComponent} from './componentfiles/product-detail-component';
-import{ShoppingCartComponent} from './componentfiles/shopping.cart.component'
-//import {APP_CONFIG} from '@angular/core'
-import {ProductService} from './services/product.service';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CartModule} from './cart.module';
 
 import { AppComponent } from './app.component';
+import { ProductsListComponent } from './products-list.component';
+import { ProductsDetailComponent } from './product-detail.component';
+import { ProductService } from './ProductService';
+import { ProductFormComponent } from './ProductFormComponent';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductListComponent,
-    ProductDetailComponent,
-    ShoppingCartComponent
+    AppComponent, ProductsListComponent, ProductsDetailComponent,ProductFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CartModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
