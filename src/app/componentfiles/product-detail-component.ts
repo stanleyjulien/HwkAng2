@@ -8,7 +8,7 @@ import {Product} from '../classfiles/product';
 @Component(
     {
         selector: 'product-detail',
-        template: `
+        template: ` 
                     <div id='main'>
                         <h1> Product Detail </h1>
                     
